@@ -8,14 +8,29 @@ function App() {
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(5);
   const [percen, setPercent] = useState(0.05);
-  const [startbill, setStartBill] = useState(0);
+  const [startbill, setStartBill] = useState(150);
+  const [activeStatus, setStatus] = useState({
+    first: true,
+    second: false,
+    third: false,
+    fourth: false,
+    fifth: false,
+  }
+    
+
+  )
 
   
   useEffect(() => {
     updater();
   }, [startbill, bill, people, percen]);
+    
 
 
+    function changeHandler(e) {
+      e.target.style.backgroundColor = "purple";
+     
+    }
 
   
 
@@ -36,6 +51,7 @@ function App() {
                 <label>Bill</label>
                 <input
                   type="number"
+                  value={startbill}
                   onChange={(e) => {
                     setStartBill(Number(e.target.value));
                     updater();
@@ -49,47 +65,78 @@ function App() {
             <div className="tipAmount">
               <label>Select Tip % </label>
               <div className="positioner">
-                <TipDivs  
+                <TipDivs class={activeStatus.first ? "active" : "tipDiv"}
+               
                 
                   active={(e) => {
-                   
+                    setStatus({
+                      first: true,
+                      second: false,
+                      third: false,
+                      fourth: false,
+                      fifth: false,
+                    })
                     setPercent(0.05);
                   }}
                   amount={5}
                 />
-                <TipDivs 
+                <TipDivs class={activeStatus.second ? "active" : "tipDiv"}
                 
                   active={(e) => {
                    
-
+                    setStatus({
+                      first: false,
+                      second: true,
+                      third: false,
+                      fourth: false,
+                      fifth: false,
+                    })
                     setPercent(0.1);
                    
                   }}
                   amount={10}
                 />
-                <TipDivs 
+                <TipDivs  class={activeStatus.third ? "active" : "tipDiv"}
                 
                   active={(e) => {
+                    setStatus({
+                      first: false,
+                      second: false,
+                      third: true,
+                      fourth: false,
+                      fifth: false,
+                    })
                    
-
                     setPercent(0.2);
                   }}
                   amount={20}
                 />
-                <TipDivs 
+                <TipDivs class={activeStatus.fourth ? "active" : "tipDiv"}
                 
                   active={(e) => {
+                    setStatus({
+                      first: false,
+                      second: false,
+                      third: false,
+                      fourth: true,
+                      fifth: false,
+                    })
                    
-
                     setPercent(0.25);
                   }}
                   amount={25}
                 />
-                <TipDivs 
+                <TipDivs  class={activeStatus.fifth ? "active" : "tipDiv"}
                  
                   active={(e) => {
+                    setStatus({
+                      first: false,
+                      second: false,
+                      third: false,
+                      fourth: false,
+                      fifth: true,
+                    })
                    
-
                     setPercent(0.5);
                   }}
                   amount={50}
@@ -99,7 +146,13 @@ function App() {
                   onChange={(e) => {
                     setPercent(Number(e.target.value) / 100);
                     updater();
-                    console.log("here");
+                    setStatus({
+                      first: false,
+                      second: false,
+                      third: false,
+                      fourth: false,
+                      fifth: false,
+                    })
                   }}
                   className="extra"
                 />
@@ -109,6 +162,7 @@ function App() {
               <form>
                 <label>Number Of People</label>
                 <input
+                 value={people}
                   type="number"
                   onChange={(e) => {
                     console.log("active");
@@ -146,9 +200,9 @@ function App() {
             <div className="screenbtn">
               <button
                 onClick={() => {
-                  setPeople(0);
+                  setPeople(5);
                 
-                  setStartBill(0);
+                  setStartBill(150);
                 }}
                 className="resetBtn"
               >

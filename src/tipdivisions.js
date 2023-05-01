@@ -1,18 +1,14 @@
 import { useState } from "react";
-
+import { useEffect } from "react";
 
 
  let TipDivs = function(props) {
-      
-    const [isActive, setActive] = useState("false");
-    const ToggleClass = () => {
-      setActive(!isActive); 
-      console.log('hello');
-     };
+    
+     
     
 
     return (
-        <div onClick={props.active}  className={isActive ? "tipDiv" : "tipDivActive"}>{props.amount} %</div>
+        <button type='submit' name="tip"  onClick={props.active}  className={props.class}>{props.amount} %</button>
     )
 }
 

@@ -42,6 +42,7 @@ code {
 
   display: flex;
   background-color: var(--White);
+  border-radius: 30px;
 }
 
 .keys {
@@ -77,6 +78,7 @@ code {
   height: 85%;
 
   background-color: var(--Verydarkcyan);
+  border-radius: 10px;
 }
 .tipAmount {
   width: 100%;
@@ -135,20 +137,35 @@ input::placeholder {
   cursor: pointer;
   background-color: var(--Verydarkcyan);
   color: var(--Verylightgrayishcyan);
+  border: none;
+  font-family: space-mono;
+  font-size: 16px;
+  padding: 2%;
+  border-radius: 5px;
 }
-.tipDivActive {
+
+.active {
   width: 70px;
   height: 35px;
 
   display: grid;
   place-items: center;
   cursor: pointer;
-  background-color: red;
+  background-color: var(--Strongcyan);
   color: var(--Verylightgrayishcyan);
+  border: none;
+  font-family: space-mono;
+  font-size: 16px;
+  padding: 2%;
+  border-radius: 5px;
 }
 
 .tipDiv:hover {
   background-color: var(--Strongcyan);
+}
+
+[name="tip"]:checked + .tipDiv {
+  background-color: aqua;
 }
 
 .screenparts {
@@ -179,11 +196,12 @@ input::placeholder {
 }
 
 .extra {
-  width: 63px;
-  height: 35px;
+  width: 60px;
+  height: 32px;
 
   display: grid;
   place-items: center;
+  border-radius: 10px;
 }
 
 .extra::placeholder {
