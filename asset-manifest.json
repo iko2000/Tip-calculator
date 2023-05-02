@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Tip-calculator/static/css/main.0553a76c.css",
+    "main.js": "/Tip-calculator/static/js/main.1d17a896.js",
+    "static/media/SpaceMono-Bold.ttf": "/Tip-calculator/static/media/SpaceMono-Bold.2d0dbf42750207f78ffa.ttf",
+    "index.html": "/Tip-calculator/index.html",
+    "main.0553a76c.css.map": "/Tip-calculator/static/css/main.0553a76c.css.map",
+    "main.1d17a896.js.map": "/Tip-calculator/static/js/main.1d17a896.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0553a76c.css",
+    "static/js/main.1d17a896.js"
+  ]
+}
